@@ -3,12 +3,18 @@ import java.util.ArrayList;
 
 public class Hero {
     private String name;
+    private int age;
+    private String power;
+    private String weakness;
     private static ArrayList<Hero> instances = new ArrayList<>();
     private boolean published;
     private LocalDateTime createdAt;
     private int id;
-    public Hero(String name){
+    public Hero(String name, int age, String power, String weakness){
         this.name = name;
+        this.age = age;
+        this.power = power;
+        this.weakness = weakness;
         this.published = false;
         this.createdAt = LocalDateTime.now();
         instances.add(this);
@@ -16,6 +22,15 @@ public class Hero {
     }
     public String getName(){
         return name;
+    }
+    public int getAge(){
+        return age;
+    }
+    public String getPower(){
+        return power;
+    }
+    public String getWeakness(){
+        return weakness;
     }
     public static ArrayList<Hero> getAll(){
         return instances;
@@ -35,8 +50,11 @@ public class Hero {
     public static Hero findById(int id){
         return instances.get(id-1);
     }
-    public void update(String content){
-        this.name = content;
+    public void update(String newName, int newAge, String newPower, String newWeakness){
+        this.name = newName;
+        this.age = newAge;
+        this.power = newPower;
+        this.weakness = newWeakness;
     }
     public void deleteHero(){
         instances.remove(id-1);

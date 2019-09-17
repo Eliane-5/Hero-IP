@@ -4,8 +4,12 @@
 
    {{#if heroes}}
        {{#each heroes }}
-        <p>Current post:</p>
-        <p>{{ name }} <a href="/heroes/{{id}}">read more...</a></p>
+        <p>HERO</p>
+        <p>{{ name }} </p>
+        <p>{{ age }} </p>
+        <p>{{ power }} </p>
+        <p>{{ weakness }} </p>
+        <a href="/heroes/{{id}}">read more...</a>
        {{/each}}
    {{else}}
     <p>No heroes!</p>

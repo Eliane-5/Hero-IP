@@ -18,7 +18,10 @@ public class App {
         post("/heroes/new", (request, response) -> { //URL to make new hero on POST route
             Map<String, Object> model = new HashMap<>();
             String name = request.queryParams("name");
-            Hero newHero = new Hero(name);
+            int age = Integer.parseInt(request.queryParams("age"));
+            String power = request.queryParams("power");
+            String weakness = request.queryParams("weakness");
+            Hero newHero = new Hero(name,age,power,weakness);
             model.put("hero", newHero);
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
@@ -52,9 +55,12 @@ public class App {
         post("/heroes/:id/update", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             String newName = req.queryParams("name");
+            int newAge = Integer.parseInt(req.queryParams("age"));
+            String newPower = req.queryParams("power");
+            String newWeakness = req.queryParams("weakness");
             int idOfHeroToEdit = Integer.parseInt(req.params("id"));
             Hero editHero = Hero.findById(idOfHeroToEdit);
-            editHero.update(newName); //don’t forget me
+            editHero.update(newName,newAge,newPower,newWeakness); //don’t forget me
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
         //get: delete an individual Hero
