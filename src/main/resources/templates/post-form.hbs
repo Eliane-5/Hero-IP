@@ -2,15 +2,15 @@
     {{#if editHero}}
          <h1>Edit this Hero!</h1>
          <form action="/heroes/{{editHero.id}}/update" method="post">
-             <label for="content">Edit this hero's content</label>
-             <input id="content" name="content" type="text" value="{{editHero.content}}">
+             <label for="name">Edit this hero's content</label>
+             <input id="name" name="name" type="text" value="{{editHero.name}}">
 
        {{else}}
          <h1>Add a new Hero!</h1>
 
          <form action="/heroes/new" method="post">
-           <label for="content">Hero Content</label>
-           <input id="content" name="content" type="text">
+           <label for="name">Hero Name</label>
+           <input id="name" name="name" type="text">
 
        {{/if}}
            <button type="submit" class="btn btn-default">Go!</button>

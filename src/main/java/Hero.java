@@ -2,20 +2,20 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Hero {
-    private String content;
+    private String name;
     private static ArrayList<Hero> instances = new ArrayList<>();
     private boolean published;
     private LocalDateTime createdAt;
     private int id;
-    public Hero(String content){
-        this.content = content;
+    public Hero(String name){
+        this.name = name;
         this.published = false;
         this.createdAt = LocalDateTime.now();
         instances.add(this);
         this.id = instances.size();
     }
-    public String getContent(){
-        return content;
+    public String getName(){
+        return name;
     }
     public static ArrayList<Hero> getAll(){
         return instances;
@@ -36,7 +36,7 @@ public class Hero {
         return instances.get(id-1);
     }
     public void update(String content){
-        this.content = content;
+        this.name = content;
     }
     public void deleteHero(){
         instances.remove(id-1);

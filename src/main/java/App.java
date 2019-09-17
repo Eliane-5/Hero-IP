@@ -15,11 +15,10 @@ public class App {
             return new ModelAndView(model, "post-form.hbs");
         }, new HandlebarsTemplateEngine());
         //post: process new Hero form
-        post("/heroes/new", (request, response) -> { //URL to make new post on POST route
+        post("/heroes/new", (request, response) -> { //URL to make new hero on POST route
             Map<String, Object> model = new HashMap<>();
-
-            String content = request.queryParams("content");
-            Hero newHero = new Hero(content);
+            String name = request.queryParams("name");
+            Hero newHero = new Hero(name);
             model.put("hero", newHero);
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
@@ -52,10 +51,10 @@ public class App {
         //post: process a form to update a Hero
         post("/heroes/:id/update", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            String newContent = req.queryParams("content");
+            String newName = req.queryParams("name");
             int idOfHeroToEdit = Integer.parseInt(req.params("id"));
             Hero editHero = Hero.findById(idOfHeroToEdit);
-            editHero.update(newContent); //don’t forget me
+            editHero.update(newName); //don’t forget me
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
         //get: delete an individual Hero
