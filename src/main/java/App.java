@@ -9,63 +9,62 @@ import java.util.Map;
 public class App {
     public static void main(String[] args){
         staticFileLocation("/public");
-        //get: show new post form
-        get("/posts/new", (req,res)->{
+        //get: show new Hero form
+        get("/heroes/new", (req,res)->{
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "post-form.hbs");
         }, new HandlebarsTemplateEngine());
-        //post: process new post form
-        post("/posts/new", (request, response) -> { //URL to make new post on POST route
+        //post: process new Hero form
+        post("/heroes/new", (request, response) -> { //URL to make new post on POST route
             Map<String, Object> model = new HashMap<>();
 
             String content = request.queryParams("content");
-            Post newPost = new Post(content);
-            model.put("post", newPost);
+            Hero newHero = new Hero(content);
+            model.put("hero", newHero);
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
-        //get: show all posts
+        //get: show all Heroes
         get("/", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            ArrayList<Post> posts = Post.getAll();
-            model.put("posts", posts);
+            ArrayList<Hero> heroes = Hero.getAll();
+            model.put("heroes", heroes);
 
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
-        //get: show an individual post
-        get("/posts/:id", (req, res) -> {
+        //get: show an individual Hero
+        get("/heroes/:id", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             int idOfPostToFind = Integer.parseInt(req.params(":id")); //pull id - must match route segment
-            Post foundPost = Post.findById(idOfPostToFind); //use it to find post
-            model.put("post", foundPost); //add it to model for template to display
+            Hero foundHero = Hero.findById(idOfPostToFind); //use it to find post
+            model.put("hero", foundHero); //add it to model for template to display
             return new ModelAndView(model, "post-detail.hbs"); //individual post page.
         }, new HandlebarsTemplateEngine());
-        //get: show a form to update a post
-        get("/posts/:id/update", (req, res) -> {
+        //get: show a form to update a Hero
+        get("/heroes/:id/update", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            int idOfPostToEdit = Integer.parseInt(req.params("id"));
-            Post editPost = Post.findById(idOfPostToEdit);
-            model.put("editPost", editPost);
+            int idOfHeroToEdit = Integer.parseInt(req.params("id"));
+            Hero editHero = Hero.findById(idOfHeroToEdit);
+            model.put("editHero", editHero);
             return new ModelAndView(model, "post-form.hbs");
         }, new HandlebarsTemplateEngine());
-        //post: process a form to update a post
-        post("/posts/:id/update", (req, res) -> {
+        //post: process a form to update a Hero
+        post("/heroes/:id/update", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             String newContent = req.queryParams("content");
-            int idOfPostToEdit = Integer.parseInt(req.params("id"));
-            Post editPost = Post.findById(idOfPostToEdit);
-            editPost.update(newContent); //don’t forget me
+            int idOfHeroToEdit = Integer.parseInt(req.params("id"));
+            Hero editHero = Hero.findById(idOfHeroToEdit);
+            editHero.update(newContent); //don’t forget me
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
-        //get: delete an individual post
-        get("/posts/:id/delete", (req, res) -> {
+        //get: delete an individual Hero
+        get("/heroes/:id/delete", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            int idOfPostToDelete = Integer.parseInt(req.params("id")); //pull id - must match route segment
-            Post deletePost = Post.findById(idOfPostToDelete); //use it to find post
-            deletePost.deletePost();
+            int idOfHeroToDelete = Integer.parseInt(req.params("id")); //pull id - must match route segment
+            Hero deleteHero = Hero.findById(idOfHeroToDelete); //use it to find post
+            deleteHero.deleteHero();
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
-        //get: delete all posts
     }
 }

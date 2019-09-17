@@ -1,13 +1,13 @@
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Post {
+public class Hero {
     private String content;
-    private static ArrayList<Post> instances = new ArrayList<>();
+    private static ArrayList<Hero> instances = new ArrayList<>();
     private boolean published;
     private LocalDateTime createdAt;
     private int id;
-    public Post(String content){
+    public Hero(String content){
         this.content = content;
         this.published = false;
         this.createdAt = LocalDateTime.now();
@@ -17,10 +17,10 @@ public class Post {
     public String getContent(){
         return content;
     }
-    public static ArrayList<Post> getAll(){
+    public static ArrayList<Hero> getAll(){
         return instances;
     }
-    public static void clearAllPosts(){
+    public static void clearAllHeroes(){
         instances.clear();
     }
     public boolean getPublished(){
@@ -32,13 +32,13 @@ public class Post {
     public int getId(){
         return id;
     }
-    public static Post findById(int id){
+    public static Hero findById(int id){
         return instances.get(id-1);
     }
     public void update(String content){
         this.content = content;
     }
-    public void deletePost(){
+    public void deleteHero(){
         instances.remove(id-1);
     }
 }

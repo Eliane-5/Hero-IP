@@ -1,15 +1,15 @@
 {{#partial "content"}}
-    {{#if editPost}}
-         <h1>Edit this Post!</h1>
-         <form action="/posts/{{editPost.id}}/update" method="post">
-             <label for="content">Edit this post's content</label>
-             <input id="content" name="content" type="text" value="{{editPost.content}}">
+    {{#if editHero}}
+         <h1>Edit this Hero!</h1>
+         <form action="/heroes/{{editHero.id}}/update" method="post">
+             <label for="content">Edit this hero's content</label>
+             <input id="content" name="content" type="text" value="{{editHero.content}}">
 
        {{else}}
-         <h1>Add a new Post!</h1>
+         <h1>Add a new Hero!</h1>
 
-         <form action="/posts/new" method="post">
-           <label for="content">Post Content</label>
+         <form action="/heroes/new" method="post">
+           <label for="content">Hero Content</label>
            <input id="content" name="content" type="text">
 
        {{/if}}
