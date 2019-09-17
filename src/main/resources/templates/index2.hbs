@@ -1,0 +1,16 @@
+<div class="container">
+      <h1>Squad list!</h1>
+
+                        {{#if squads}}
+                              {{#each squads }}
+                               <p>Squad</p>
+                               <p>{{ squadName }} </p>
+                               <p>{{ maxSize }} </p>
+                               <p>{{ cause }} </p>
+
+                               <a href="/squads/{{id}}">read more...</a>
+                              {{/each}}
+                          {{else}}
+                           <p>No Squads!</p>
+                          {{/if}}
+</div>

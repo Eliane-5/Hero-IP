@@ -1,19 +1,21 @@
 {{#partial "content"}}
+<div class="container">
+             <h1>Hero list!</h1>
 
-   <h1>Hero list!</h1>
+               {{#if heroes}}
+                   {{#each heroes }}
+                    <p>HERO</p>
+                    <p>{{ name }} </p>
+                    <p>{{ age }} </p>
+                    <p>{{ power }} </p>
+                    <p>{{ weakness }} </p>
+                    <a href="/heroes/{{id}}">read more...</a>
+                   {{/each}}
+               {{else}}
+                <p>No heroes!</p>
+               {{/if}}
+</div>
 
-   {{#if heroes}}
-       {{#each heroes }}
-        <p>HERO</p>
-        <p>{{ name }} </p>
-        <p>{{ age }} </p>
-        <p>{{ power }} </p>
-        <p>{{ weakness }} </p>
-        <a href="/heroes/{{id}}">read more...</a>
-       {{/each}}
-   {{else}}
-    <p>No heroes!</p>
-   {{/if}}
 {{/partial}}
 
 {{> layout.hbs}}
