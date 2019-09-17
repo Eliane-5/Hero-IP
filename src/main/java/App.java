@@ -12,7 +12,7 @@ public class App {
         //get: show new post form
         get("/posts/new", (req,res)->{
             Map<String, Object> model = new HashMap<>();
-            return new ModelAndView(model, "newpost-form.hbs");
+            return new ModelAndView(model, "post-form.hbs");
         }, new HandlebarsTemplateEngine());
         //post: process new post form
         post("/posts/new", (request, response) -> { //URL to make new post on POST route
@@ -42,7 +42,13 @@ public class App {
             return new ModelAndView(model, "post-detail.hbs"); //individual post page.
         }, new HandlebarsTemplateEngine());
         //get: show a form to update a post
-
+        get("/posts/:id/update", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            int idOfPostToEdit = Integer.parseInt(req.params("id"));
+            Post editPost = Post.findById(idOfPostToEdit);
+            model.put("editPost", editPost);
+            return new ModelAndView(model, "post-form.hbs");
+        }, new HandlebarsTemplateEngine());
         //post: process a form to update a post
 
         //get: delete an individual post

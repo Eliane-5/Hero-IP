@@ -35,4 +35,7 @@ public class Post {
     public static Post findById(int id){
         return instances.get(id-1);
     }
+    public void update(String content){
+        this.content = content;
+    }
 }
