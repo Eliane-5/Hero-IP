@@ -7,9 +7,10 @@ background-size:cover;
 }
 </style>
 <div class="container">
-      <h1>Squad list!</h1>
+
 
                         {{#if squads}}
+                            <h1>Squad list!</h1>
                               {{#each squads }}
                                <p>Squad</p>
                                <p>{{ squadName }} </p>
@@ -19,7 +20,7 @@ background-size:cover;
                                <a href="/squads/{{id}}">read more...</a>
                               {{/each}}
                           {{else}}
-                           <p>No Squads!</p>
+                           <h1>No Squads registered!</h1>
                           {{/if}}
 </div>
 {{/partial}}
