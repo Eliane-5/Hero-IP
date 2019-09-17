@@ -1,27 +1,27 @@
 {{#partial "content"}}
-<style>
-body{
-background-image:url("https://images8.alphacoders.com/888/thumb-1920-888328.jpg");
-background-repeat:no-repeat;
-background-size:cover;
-}
-</style>
-<div class="container">
-    {{#if heroes}}
-        <h1>Hero list!</h1>
-                   {{#each heroes }}
-                    <p>HERO</p>
-                    <p>{{ name }} </p>
-                    <p>{{ age }} </p>
-                    <p>{{ power }} </p>
-                    <p>{{ weakness }} </p>
-                    <button type="button"><a style="color:black;" href="/squads/new">add hero to squad</a></button>
-                    <a href="/heroes/{{id}}">read more... </a>
-                   {{/each}}
-               {{else}}
-                <h1>No heroes registered!</h1>
-               {{/if}}
-</div>
+    <style>
+        body{
+            background-image:url("https://images8.alphacoders.com/888/thumb-1920-888328.jpg");
+            background-repeat:no-repeat;
+            background-size:cover;
+        }
+    </style>
+    <div class="container">
+        {{#if heroes}}
+            <h1>Hero list!</h1>
+            {{#each heroes }}
+                <p>HERO</p>
+                <p>{{ name }} </p>
+                <p>{{ age }} </p>
+                <p>{{ power }} </p>
+                <p>{{ weakness }} </p>
+                <button type="button"><a style="color:black;" href="/squads/new">add hero to squad</a></button>
+                <a href="/heroes/{{id}}">read more... </a>
+            {{/each}}
+        {{else}}
+            <h1>No heroes registered!</h1>
+            {{/if}}
+    </div>
 
 {{/partial}}
 

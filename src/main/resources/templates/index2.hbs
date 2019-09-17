@@ -1,28 +1,25 @@
 {{#partial "content"}}
-<style>
-body{
-background-image:url("https://www.barraques.cat/pngfile/big/47-473962_related-wallpapers-marvels-agents-of-shield-season-1.jpg");
-background-repeat:no-repeat;
-background-size:cover;
-}
-</style>
-<div class="container">
-
-
-                        {{#if squads}}
-                            <h1>Squad list!</h1>
-                              {{#each squads }}
-                               <p>Squad</p>
-                               <p>{{ squadName }} </p>
-                               <p>{{ maxSize }} </p>
-                               <p>{{ cause }} </p>
-
-                               <a href="/squads/{{id}}">read more...</a>
-                              {{/each}}
-                          {{else}}
-                           <h1>No Squads registered!</h1>
-                          {{/if}}
-</div>
+    <style>
+    body{
+        background-image:url("https://www.barraques.cat/pngfile/big/47-473962_related-wallpapers-marvels-agents-of-shield-season-1.jpg");
+        background-repeat:no-repeat;
+        background-size:cover;
+    }
+    </style>
+    <div class="container">
+        {{#if squads}}
+            <h1>Squad list!</h1>
+                {{#each squads }}
+                    <p>Squad</p>
+                    <p>{{ squadName }} </p>
+                    <p>{{ maxSize }} </p>
+                    <p>{{ cause }} </p>
+                    <a href="/squads/{{id}}">read more...</a>
+                {{/each}}
+        {{else}}
+            <h1>No Squads registered!</h1>
+        {{/if}}
+    </div>
 {{/partial}}
 
 {{> layout.hbs}}

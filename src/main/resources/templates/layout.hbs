@@ -1,32 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head>
-   <title>{{#block "title"}}hero{{/block}}</title>
+    <head>
+        <title>{{#block "title"}}hero{{/block}}</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    </head>
+    <body style="color:white;">
+        <ul style="text-align:center;background-color:white;" class="nav nav-tabs">
+            <li role="presentation"><a style="color:black;"  href="/">Hero</a></li>
+            <li role="presentation"><a style="color:black;"  href="/heroes/new">Add a New Hero</a></li>
+            <li role="presentation"><a style="color:black;"  href="/list">Squad</a></li>
+            <li role="presentation"><a style="color:black;"  href="/squads/new"> Add Squad</a></li>
+        </ul>
+        <div class="container">
+        <!--begin main template-->
+            <div class="page-header">
+                <h1 style="text-align:center;">Hero Squad App.</h1>
+            </div>
 
-   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-</head>
-<body style="color:white;">
-<ul style="text-align:center;background-color:white;" class="nav nav-tabs">
-   <li role="presentation"><a style="color:black;"  href="/">Hero</a></li>
-      <li role="presentation"><a style="color:black;"  href="/heroes/new">Add a New Hero</a></li>
-    <li role="presentation"><a style="color:black;"  href="/list">Squad</a></li>
-       <li role="presentation"><a style="color:black;"  href="/squads/new"> Add Squad</a></li>
-</ul>
-<div class="container">
-   <!--begin main template-->
-   <div class="page-header">
-       <h1 style="text-align:center;">Hero Squad App.</h1>
-   </div>
+            <div class="col-md-12">
+                {{#block "content"}}
+                {{/block}}
 
-   <div class="col-md-12">
-       {{#block "content"}}
-       {{/block}}
+            </div>
+        </div>
+        <!--end main template-->
+        {{#block "footer"}}
 
-   </div>
-</div>
-<!--end main template-->
-{{#block "footer"}}
-
-   </body>
-   </html>
+    </body>
+</html>
 {{/block}}
