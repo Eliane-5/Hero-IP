@@ -9,4 +9,16 @@ public class Post {
         this.published = false;
         instances.add(this);
     }
+    public String getContent(){
+        return content;
+    }
+    public static ArrayList<Post> getAll(){
+        return instances;
+    }
+    public static void clearAllPosts(){
+        instances.clear();
+    }
+    public boolean getPublished(){
+        return this.published;
+    }
 }
