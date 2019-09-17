@@ -1,4 +1,11 @@
 {{#partial "content"}}
+<style>
+body{
+background-image:url("https://images8.alphacoders.com/888/thumb-1920-888328.jpg");
+background-repeat:no-repeat;
+background-size:cover;
+}
+</style>
     {{#if editHero}}
          <h1>Edit this Hero!</h1>
          <form action="/heroes/{{editHero.id}}/update" method="post">

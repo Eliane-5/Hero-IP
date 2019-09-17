@@ -1,4 +1,11 @@
 {{#partial "content"}}
+<style>
+body{
+background-image:url("https://www.barraques.cat/pngfile/big/47-473962_related-wallpapers-marvels-agents-of-shield-season-1.jpg");
+background-repeat:no-repeat;
+background-size:cover;
+}
+</style>
     {{#if editSquad}}
          <h1>Edit this Squad!</h1>
          <form action="/squads/{{editSquad.id}}/update" method="post">
