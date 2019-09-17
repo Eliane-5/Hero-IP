@@ -10,7 +10,10 @@ public class App {
     public static void main(String[] args){
         staticFileLocation("/public");
         //get: show new post form
-
+        get("/posts/new", (req,res)->{
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "newpost-form.hbs");
+        }, new HandlebarsTemplateEngine());
         //post: process new post form
         post("/posts/new", (request, response) -> { //URL to make new post on POST route
             Map<String, Object> model = new HashMap<>();
